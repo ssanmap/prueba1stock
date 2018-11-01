@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+
+<div class="small_div">
+
+<div class="container">
+    <br>
+    <h2>Productos</h2>
+    <hr>
+
+    <form action="/update/{{ books.id }}">
+
+        {% csrf_token %}
+
+        <label class="form-group" for="title">Title: </label>
+        <input class="form-control" type="text" name="title" value="{{ productos.title }}" placeholder="{{ productos.title }}">
+
+        <label class="form-group" for="medida">medida: </label>
+        <input class="form-control" type="text" name="medida" value="{{ productos.medida }}" placeholder="{{ productos.medida }}">
+
+        <label class="form-group" for="author">price: </label>
+        <input class="form-control" type="text" name="price" value="{{ productos.price }}" placeholder="{{ productos.price }}">
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="Update">
+
+    </form>
+
+
+</div>
+</div>
+
+</body>
+</html>

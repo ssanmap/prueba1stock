@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>document</title>
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+    <body>
+    <div class="container">
+        <h2 align="center">Stock</h2>
+        <hr>
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Medida</th>
+                    <th>Precio</th>
+                    <th>Precio.venta</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+    {% for productos in productos %}
+
+        <tr>
+                    <td>{{ productos.title }}</td>
+                    <td>{{ productos.medida }}</td>
+                    <td>{{ productos.price }}</td>
+                    <td>{{ productos.pricesale }}</td>
+                    <td>{{ productos.cantidad }}</td>
+                    <td>{{ productos.Estado }}</td>
+            <td><a class="btn btn-info" href="/edit/{{ book.id }}">Editar</a>
+                        <a class="btn btn-danger" href="/delete/{{ book.id }}">Eliminar</a>
+                    </td>
+                </tr>
+    {% endfor %}
+
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="/add/">Agrega un producto</a>
+
+    </div>
+    </body>
+
+</html>
